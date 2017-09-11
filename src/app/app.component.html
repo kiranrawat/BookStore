@@ -1,14 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-    <h1>
-        Welcome to {{title}}!
-    </h1>
-</div>
-<div id="search-component" style="text-align:center">
-    <h4>Book Search</h4>
-    <input #searchBook 
-        id="search-box"
-        value=""
-        placeholder="Enter Book Name"
-        (keyup.enter)="searchBooks(searchBook.value)" />
+<div class='container-fluid'>
+<h1>{{title}}</h1>
+<book-list></book-list>
 </div>

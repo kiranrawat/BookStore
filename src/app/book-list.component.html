@@ -1,0 +1,40 @@
+<div class='panel panel-primary'>
+    <div class="panel-heading">
+        <b> Book List </b>
+    </div>
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-2'>Search: </div>
+            <div class='cold-md-4'>
+                <input #searchBook id="search-box" [(ngModel)]='listFilter' placeholder="Enter Book Name" (keyup.enter)="searchBooks(searchBook.value)" />
+            </div>
+            <div class='row'>
+                <div class='col-md-2'>
+                    <h3>Filter by:{{listFilter}}</h3>
+                </div>
+            </div>
+            <div class='table-responsive'>
+                <table class='table'>
+                    <thead>
+                        <tr>
+                            <th>
+                                <button class='btn btn-primary' (click)='toggleImage()'>
+                                {{showImage ? 'Hide' : 'Show'}} Image
+                        </button>
+                            </th>
+                            <th>BookName</th>
+                            <th>Author</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = 'let item of books'>
+                            <td><img *ngIf='showImage' [src]='item.volumeInfo.imageLinks.smallThumbnail' [title]='item.volumeInfo.title'
+                            [style.width.px]='imageWidth' [style.margin.px]='imageMargin'></td>
+                            <td>{{item.volumeInfo.title | uppercase | convertToSpaces : ':' }}</td>
+                            <td>{{item.volumeInfo.authors}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
